@@ -10,16 +10,23 @@ dotenv.config({ path: envPath });
 const redeemUrl = process.env.REDEEM_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function listGifts(dto: RedeemInstructionsDto): Promise<any> {
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${access_token}`,
-  };
+export default async function listGifts(
+  dto: RedeemInstructionsDto
+): Promise<any> {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+    };
 
-  const response = await axios.post(redeemUrl as string, dto, {
-    headers: headers,
-  });
+    const response = await axios.post(redeemUrl as string, dto, {
+      headers: headers,
+    });
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error("Error getting transactions:", error);
+    throw error;
+  }
 }

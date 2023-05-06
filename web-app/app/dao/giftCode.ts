@@ -10,16 +10,21 @@ dotenv.config({ path: envPath });
 const giftcodeUrl = process.env.GIFTCODE_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function allTransactions (dto: GiftCodeDto): Promise<any> {
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${access_token}`,
-  };
+export default async function allTransactions(dto: GiftCodeDto): Promise<any> {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+    };
 
-  const response = await axios.post(giftcodeUrl as string, dto, {
-    headers: headers,
-  });
+    const response = await axios.post(giftcodeUrl as string, dto, {
+      headers: headers,
+    });
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error("Error getting transactions:", error);
+    throw error;
+  }
 }

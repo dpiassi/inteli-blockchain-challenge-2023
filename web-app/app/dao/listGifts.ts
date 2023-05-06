@@ -11,15 +11,20 @@ const giftlistUrl = process.env.GIFT_LIST_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
 export default async function listGifts(dto: ListGiftsDto): Promise<any> {
-  const headers = {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-    Authorization: `Bearer ${access_token}`,
-  };
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+    };
 
-  const response = await axios.post(giftlistUrl as string, dto, {
-    headers: headers,
-  });
+    const response = await axios.post(giftlistUrl as string, dto, {
+      headers: headers,
+    });
 
-  return response;
+    return response;
+  } catch (error) {
+    console.error("Error getting transactions:", error);
+    throw error;
+  }
 }

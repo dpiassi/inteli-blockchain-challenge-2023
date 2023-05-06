@@ -10,21 +10,23 @@ dotenv.config({ path: envPath });
 const transactionsURL = process.env.TRANSACTIONS_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function allTransactions (dto: AllTransactionsDto): Promise<any> {
-    try {
+export default async function allTransactions(
+  dto: AllTransactionsDto
+): Promise<any> {
+  try {
     const headers = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${access_token}`,
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
     };
 
     const response = await axios.post(transactionsURL as string, dto, {
-        headers: headers,
+      headers: headers,
     });
 
     return response;
-    } catch (error) {
-        console.error("Error getting transactions:", error);
-        throw error;
-    }
+  } catch (error) {
+    console.error("Error getting transactions:", error);
+    throw error;
+  }
 }
