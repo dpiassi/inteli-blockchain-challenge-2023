@@ -1,23 +1,23 @@
 import dotenv from "dotenv";
 import path from "path";
 import axios from "axios";
-import ListGiftsDto from "~/dto/listGifts.dto";
+import AllTransactionsDto from "~/dto/allTransactions.dto";
 
 // Load credentials from .env file
 
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
-const giftlistUrl = process.env.GIFT_LIST_URL;
+const transactionsURL = process.env.TRANSACTIONS_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function listGifts(dto: ListGiftsDto): Promise<any> {
+export default async function allTransactions (dto: AllTransactionsDto): Promise<any> {
   const headers = {
     "Content-Type": "application/json",
     Accept: "application/json",
     Authorization: `Bearer ${access_token}`,
   };
 
-  const response = await axios.post(giftlistUrl as string, dto, {
+  const response = await axios.post(transactionsURL as string, dto, {
     headers: headers,
   });
 
