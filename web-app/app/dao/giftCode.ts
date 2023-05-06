@@ -1,17 +1,16 @@
-
 import dotenv from "dotenv";
 import path from "path";
 import axios from "axios";
-import CreateOrderDto from "~/dto/createOrder.dto";
+import GiftCodeDto from "~/dto/giftCode.dto";
 
 // Load credentials from .env file
 
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
-const orderUrl = process.env.ORDER_URL;
+const giftcodeUrl = process.env.GIFTCODE_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function createOrder(dto: CreateOrderDto): Promise<any> {
+export default async function allTransactions(dto: GiftCodeDto): Promise<any> {
   try {
     const headers = {
       "Content-Type": "application/json",
@@ -19,14 +18,13 @@ export default async function createOrder(dto: CreateOrderDto): Promise<any> {
       Authorization: `Bearer ${access_token}`,
     };
 
-    const response = await axios.post(orderUrl as string, dto, {
+    const response = await axios.post(giftcodeUrl as string, dto, {
       headers: headers,
     });
 
     return response;
   } catch (error) {
-    console.error("Error creating order:", error);
+    console.error("Error getting transactions:", error);
     throw error;
   }
 }
-
