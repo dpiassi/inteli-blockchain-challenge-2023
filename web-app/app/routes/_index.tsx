@@ -1,6 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 
+import { depositBTGUSD } from "~/blockchain";
 import { useOptionalUser } from "~/utils";
 
 export const meta: V2_MetaFunction = () => [{ title: "Remix Notes" }];
@@ -45,6 +46,9 @@ export default function Index() {
                     >
                       Wallet
                     </Link>
+                    <button onClick={() => depositBTGUSD(10)}>
+                      Get Gift Card
+                    </button>
                   </div>
                 )}
               </div>
