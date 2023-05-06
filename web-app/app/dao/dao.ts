@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 import path from 'path';
 import axios from 'axios'
 import CreateOrderDto from '~/dto/createOrder.dto';
