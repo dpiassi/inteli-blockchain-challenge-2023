@@ -1,38 +1,38 @@
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:.dev.db"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model User {
+model Transaction {
   id    String @id @default(cuid())
-  email String @unique
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  password Password?
-  notes    Note[]
+  walletId String
+  amount Int
+  discount Int
+  currencyCode String
+  fee Int
+  recipientEmail String
+  customIdentifier String
+  status String
+  smsFee String
+  recipientPhone String
+  transactionCreatedTime DateTime
+  product Product? @relation(fields: [productId], references: [id])
+  productId Int  @unique
 }
 
-model Password {
-  hash String
-
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String @unique
-}
-
-model Note {
-  id    String @id @default(cuid())
-  title String
-  body  String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  userId String
+model Product {
+  id Int @id @unique
+  productName String
+  countryCode String
+  quantity Int
+  unitPrice Int
+  totalPrice Int
+  currencyCode String
+  brandId Int
+  brandName String
+  transaction Transaction?
 }
