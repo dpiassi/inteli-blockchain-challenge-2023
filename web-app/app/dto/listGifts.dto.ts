@@ -1,13 +1,5 @@
-export default interface CreateOrderDto {
-    productId: number,
-    countryCode?: string,
+export default interface ListGiftsDto {
+    size: number,
+    productName: string,
     quantity: number,
-    unitPrice: number,
-    customIdentifier?: string,
-    senderName: string,
-    recipientEmail: string,
-    recipientPhoneDetails?: {
-        countryCode: string, 
-        phoneNumber: string
-    }
 }
