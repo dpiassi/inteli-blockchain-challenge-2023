@@ -1,27 +1,30 @@
-import dotenv from 'dotenv';
-import path from 'path';
-import axios from 'axios'
-import CreateOrderDto from '~/dto/createOrder.dto';
+import dotenv from "dotenv";
+import path from "path";
+import axios from "axios";
+import CreateOrderDto from "~/dto/createOrder.dto";
 
 // Load credentials from .env file
 
-const envPath = path.resolve(__dirname, '../.env');
+const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
-const orderUrl = process.env.ORDER_URL
-const access_token = process.env.ACCESS_TOKEN
-
+const orderUrl = process.env.ORDER_URL;
+const access_token = process.env.ACCESS_TOKEN;
 
 export default async function createOrder(dto: CreateOrderDto): Promise<any> {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: `Bearer ${access_token}`,
+    };
 
-  const headers = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-    Authorization: `Bearer ${access_token}`,
-  };     
+    const response = await axios.post(orderUrl as string, dto, {
+      headers: headers,
+    });
 
-  const response = await axios.post(orderUrl as string, dto, {
-    headers: headers
-  });
-
-  return response
+    return response;
+  } catch (error) {
+    console.error("Error creating order:", error);
+    throw error;
+  }
 }
