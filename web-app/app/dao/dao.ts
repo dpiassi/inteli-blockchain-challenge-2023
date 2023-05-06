@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 import axios from 'axios'
-import CreateOrderDto from '~/dto/createOrder.dto.';
+import CreateOrderDto from '~/dto/createOrder.dto';
 // Load credentials from .env file
 
 const envPath = path.resolve(__dirname, '../.env');
@@ -21,6 +21,10 @@ export default async function createOrder(dto: CreateOrderDto): Promise<any> {
   const response = await axios.post(orderUrl as string, dto, {
     headers: headers
   });
+
+  console.log(response)
+
+  console.log("CHEGOU AQUI ##########################")
 
   return response
 }

@@ -1,6 +1,8 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import createOrder from "~/dao/dao";
+import { useSubmit } from '@remix-run/react'
 
 
 export const meta: V2_MetaFunction = () => [{ title: "ReCoin" }];
@@ -12,6 +14,30 @@ export default function Index() {
   }
   function closeModal() {
     setModalIsOpen(false);
+  }
+
+
+  async function handleSubmit(event: any) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    try {
+      const giftCard = await createOrder({
+        productId: 10055,
+        countryCode: formData.get('contry-code-input') as string,
+        quantity: formData.get('quantity-input') as unknown as number,
+        unitPrice: 55,
+        senderName: formData.get('name') as string,
+        recipientEmail: formData.get('email') as string,
+        recipientPhoneDetails: {
+            countryCode: formData.get('contry-code-input') as string,
+            phoneNumber: formData.get('phone-input') as string, 
+        } 
+      })
+      console.log(giftCard)
+      closeModal();
+    } catch (error) {
+      console.log("Fudeu")
+    }
   }
 
   return (
@@ -123,23 +149,40 @@ export default function Index() {
             <div className="mx-auto w-full max-w-lg">
               <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
 
-              <form action="https://api.web3forms.com/submit" className="mt-10">
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+              <form onSubmit={handleSubmit} id="purchase" className="mt-10">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="relative z-0">
-                    <input type="text" name="name" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
-                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Your name</label>
+                    <input id="name-input" type="text" name="name-input" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Your name
+                    </label>
                   </div>
                   <div className="relative z-0">
-                    <input type="text" name="email" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
-                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Your email</label>
+                    <input id="email-input" type="text" name="email-input" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Your email
+                    </label>
                   </div>
-                  <div className="relative z-0 col-span-2">
-                    <textarea name="message" rows={5} className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" "></textarea>
-                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">Your message</label>
+                  <div className="relative z-0">
+                    <input id="quantity-input" name="quantity-input" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Quantity
+                    </label>
+                  </div>
+                  <div className="relative z-0">
+                    <input id="contry-code-input" type="text" name="contry-code-input" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Contry Code
+                    </label>
+                  </div>
+                  <div className="relative z-0">
+                    <input id="phone-input" type="text" name="phone-input" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Phone Number
+                    </label>
                   </div>
                 </div>
-                <button type="submit" className="mt-5 rounded-md bg-black px-10 py-2 text-white">Send Message</button>
+                <button type="submit" className="mt-5 rounded-md bg-black px-10 py-2 text-white">Purchase</button>
                 <button type="button" className="mt-5 rounded-md bg-black px-10 py-2 text-white" onClick={closeModal}>Cancel</button>
               </form>
             </div>
