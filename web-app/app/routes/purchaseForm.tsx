@@ -22,9 +22,12 @@ export default function PurchaseForm() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const unitPrice = formData.get("price-input") as unknown as number;
+    const quantity = formData.get("quantity-input") as unknown as number;
+
     try {
       function getProductPriceInUSD(): number {
-        return giftCardData!.fixedRecipientDenominations[0];
+        return unitPrice * quantity;
       }
 
       depositBTGUSD(getProductPriceInUSD(), async function (error: Error | null, receipt: object | null) {
@@ -32,8 +35,8 @@ export default function PurchaseForm() {
           const giftCard = await createOrder({
             productId: parseInt(id),
             countryCode: formData.get("contry-code-input") as string,
-            quantity: formData.get("quantity-input") as unknown as number,
-            unitPrice: formData.get("price-input") as unknown as number,
+            quantity: quantity,
+            unitPrice: unitPrice,
             senderName: formData.get("name-input") as string,
             recipientEmail: formData.get("email-input") as string,
             recipientPhoneDetails: {
@@ -42,11 +45,11 @@ export default function PurchaseForm() {
             },
           });
           console.log(giftCard)
-      setApiResponse(giftCard);
+          setApiResponse(giftCard);
         }
       });
     } catch (error) {
-      console.log("err",error)
+      console.log("err", error)
       setApiResponse(JSON.stringify(error));
     }
   }
