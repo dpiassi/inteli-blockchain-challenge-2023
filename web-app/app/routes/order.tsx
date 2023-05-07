@@ -8,11 +8,11 @@ import { validateEmail } from "~/utils";
 export const action = async ({ request }: ActionArgs) => {
   const formData = await request.formData();
 
-  const quantity = formData.get("quantity")
+  const quantity = formData.get("quantity");
   const recipientEmail = formData.get("email");
-  const senderName = formData.get("name")
-  const phoneNumber = formData.get("phoneNumber")
-  const phoneCountryCode = formData.get("countryCode")
+  const senderName = formData.get("name");
+  const phoneNumber = formData.get("phoneNumber");
+  const phoneCountryCode = formData.get("countryCode");
 
   const productId = formData.get("password");
 
@@ -22,7 +22,6 @@ export const action = async ({ request }: ActionArgs) => {
       { status: 400 }
     );
   }
-
 };
 
 export const meta: V2_MetaFunction = () => [{ title: "Login" }];
@@ -70,9 +69,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Quantity
             </label>
             <div className="mt-1">
@@ -95,9 +92,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Name
             </label>
             <div className="mt-1">
@@ -120,9 +115,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Phone Number
             </label>
             <div className="mt-1">
@@ -132,7 +125,9 @@ export default function LoginPage() {
                 name="phoneNumber"
                 type="phoneNumber"
                 autoComplete=""
-                aria-invalid={actionData?.errors?.phoneNumber ? true : undefined}
+                aria-invalid={
+                  actionData?.errors?.phoneNumber ? true : undefined
+                }
                 aria-describedby="password-error"
                 className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
               />
@@ -145,9 +140,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label className="block text-sm font-medium text-gray-700">
               Phone Number
             </label>
             <div className="mt-1">
@@ -157,7 +150,9 @@ export default function LoginPage() {
                 name="phoneCountryCode"
                 type="phoneCountryCode"
                 autoComplete=""
-                aria-invalid={actionData?.errors?.phoneCountryCode ? true : undefined}
+                aria-invalid={
+                  actionData?.errors?.phoneCountryCode ? true : undefined
+                }
                 aria-describedby="password-error"
                 className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
               />

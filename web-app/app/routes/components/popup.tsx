@@ -1,9 +1,13 @@
-import React from 'react';
-import { Popover, PopoverHandler, PopoverContent, Button } from '@material-tailwind/react';
-
+import React from "react";
+import {
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button,
+} from "@material-tailwind/react";
 
 interface PopupProps {
-    content: any
+  content: any;
 }
 
 const PopupComponent = ({ content }: PopupProps) => {
@@ -12,9 +16,7 @@ const PopupComponent = ({ content }: PopupProps) => {
       <PopoverHandler>
         <Button>Show Popover</Button>
       </PopoverHandler>
-      <PopoverContent>
-        {content}
-      </PopoverContent>
+      <PopoverContent>{content}</PopoverContent>
     </Popover>
   );
 };

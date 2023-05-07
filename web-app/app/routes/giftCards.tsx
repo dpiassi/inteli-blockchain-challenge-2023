@@ -14,15 +14,15 @@ export default function GiftCards() {
     Riot: 4869,
     Steam: 15674,
   };
-  
+
   return (
     <main>
       <head>
         <title>ReCoin</title>
       </head>
       <body>
-      <Header />
-      <Products />
+        <Header />
+        <Products />
       </body>
       <footer>{/* conteúdo do rodapé */}</footer>
     </main>
