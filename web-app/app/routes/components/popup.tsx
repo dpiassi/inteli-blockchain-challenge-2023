@@ -11,14 +11,30 @@ interface PopupProps {
 }
 
 const PopupComponent = ({ content }: PopupProps) => {
-  return (
+    console.log(content)
+    if(content.status == 200) {
+        return (
+            <Popover>
+                <PopoverHandler>
+                <Button>Show information</Button>
+                </PopoverHandler>
+                <PopoverContent>
+                    <h4>{content.message}</h4>
+                    <p>E-mail: {content.email}</p>
+                    <p>Phone: {content.phone}</p>
+                    <p>Transaction ID: {content.transactionId}</p>
+                </PopoverContent>
+            </Popover>
+            );
+    }
+    return (
     <Popover>
-      <PopoverHandler>
+        <PopoverHandler>
         <Button>Show Popover</Button>
-      </PopoverHandler>
-      <PopoverContent>{content}</PopoverContent>
+        </PopoverHandler>
+        <PopoverContent>{content.message}</PopoverContent>
     </Popover>
-  );
+    );
 };
 
 export default PopupComponent;

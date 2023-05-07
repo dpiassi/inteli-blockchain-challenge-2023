@@ -18,11 +18,23 @@ export default async function createOrder(dto: CreateOrderDto): Promise<any> {
   
   const response = await axios.request(config)
   .then((response) => {
-    console.log(JSON.stringify(response.data));
+    const responseDate = {
+      status: response.status,
+      message: 'Your purchase was successful',
+      transactionId: response.data.transactionId,
+      totalAmount: response.data.amount,
+      email: response.data.recipientEmail,
+      phone: response.data.recipientPhone
+    }
+    return responseDate
   })
   .catch((error) => {
-    console.log(error);
-    return error
+    console.log(error)
+    const errorMsg = 'There was an error with your purchase, please check that the number of cards and price are correct.'
+    return {
+      status: error.response.status,
+      message: errorMsg
+    }
   });
 
   return response;
