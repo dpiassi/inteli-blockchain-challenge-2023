@@ -4,7 +4,6 @@ import path from "path";
 import GiftCodeDto from "~/dto/giftCode.dto";
 
 // Load credentials from .env file
-
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
 const giftcodeUrl = process.env.GIFTCODE_URL;

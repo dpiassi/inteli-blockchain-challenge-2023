@@ -4,7 +4,6 @@ import path from "path";
 import RedeemInstructionsDto from "~/dto/redeemInstruct.dto";
 
 // Load credentials from .env file
-
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
 const redeemUrl = process.env.REDEEM_URL;

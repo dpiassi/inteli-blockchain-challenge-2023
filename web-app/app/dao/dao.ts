@@ -5,7 +5,6 @@ import path from "path";
 import CreateOrderDto from "~/dto/createOrder.dto";
 
 // Load credentials from .env file
-
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
 const orderUrl = process.env.ORDER_URL;
