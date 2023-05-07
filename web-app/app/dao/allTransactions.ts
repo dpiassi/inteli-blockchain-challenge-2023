@@ -4,7 +4,6 @@ import path from "path";
 import AllTransactionsDto from "~/dto/allTransactions.dto";
 
 // Load credentials from .env file
-
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
 const transactionsURL = process.env.TRANSACTIONS_URL;

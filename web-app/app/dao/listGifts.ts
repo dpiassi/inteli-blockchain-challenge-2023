@@ -5,7 +5,6 @@ import path from "path";
 import ListGiftsDto from "~/dto/listGifts.dto";
 
 // Load credentials from .env file
-
 const envPath = path.resolve(__dirname, "../.env");
 dotenv.config({ path: envPath });
 const giftlistUrl = process.env.GIFT_LIST_URL;
