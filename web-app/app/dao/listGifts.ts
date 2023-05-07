@@ -6,7 +6,7 @@ import * as env from "../../config";
 const giftlistUrl = env.default.GIFTLIST_URL;
 const access_token = env.default.ACCESS_TOKEN;
 
-export default async function listGifts(dto: ListGiftsDto): Promise<any> {
+export default async function ListGifts(dto: ListGiftsDto): Promise<any> {
   try {
     const headers = {
       "Content-Type": "application/json",
