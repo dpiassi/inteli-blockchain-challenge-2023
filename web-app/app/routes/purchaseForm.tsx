@@ -1,9 +1,12 @@
 import createOrder from "~/dao/createOrder";
 import { Link, useLocation } from "@remix-run/react";
+import {useState} from 'react'
 import jsonData from "../../giftCards.json"
 import GiftCardComponent from "./components/giftCard"
+import PopupComponent from "./components/popup";
 
 export default function PurchaseForm() {
+  const [apiResponse, setApiResponse] = useState<any | null>(null);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.keys().next().value;
@@ -30,11 +33,9 @@ export default function PurchaseForm() {
           phoneNumber: formData.get("phone-input") as string,
         },
       });
-      console.log(giftCard);
-      ;
+      setApiResponse(JSON.stringify(giftCard));
     } catch (error) {
-      console.log("Error", error);
-      ;
+      setApiResponse(error);
     }
 
   }
@@ -137,6 +138,10 @@ export default function PurchaseForm() {
             <Link to= "/giftCards">Cancel</Link>
           </button>
         </form>
+
+        {apiResponse && (
+          <PopupComponent content={<pre>{apiResponse}</pre>} />
+        )}
       </div>
     </div>
   );
