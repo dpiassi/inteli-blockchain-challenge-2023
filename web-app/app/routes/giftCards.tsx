@@ -28,6 +28,21 @@ export default function GiftCards() {
     closeModal()
   }
 
+  interface Products {
+    [key: string]: number;
+  }
+  
+  const ProductsHash: Products = {
+    Bitcoin: 16964,
+    FreeFire: 3208,
+    CreditCardMaster: 16676,
+    CreditCardVisa: 16676,
+    FortNite: 14684,
+    Riot: 4869,
+    Steam: 15674,
+
+  };
+
   return (
     <main>
       <head>
@@ -62,7 +77,7 @@ export default function GiftCards() {
             </a>
           </div>
         </header>
-        <div>
+        <div className="">
           <div className="bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="bg-gray-100 flex-1 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-10 max-w-6xl sm:p-6 sm:my-2 sm:mx-4 sm:rounded-2xl">
               {/* <!-- Content --> */}
@@ -81,88 +96,8 @@ export default function GiftCards() {
                     </button>
                   </div>
                   <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Google_Play/Google_Play-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Google Play</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/App_Store_(iOS)/App_Store_(iOS)-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">App Store</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Uber/Uber-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Uber</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://imagensfree.com.br/wp-content/uploads/2021/11/icone-ifood-sorriso-vermelho-png.png" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Ifood</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/PlayStation/PlayStation-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">PlayStation Store</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Amazon_(company)/Amazon_(company)-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Amazon</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Netflix/Netflix-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Netflix</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Xbox_(app)/Xbox_(app)-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Xbox Store</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Spotify/Spotify-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Spotify</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Deezer/Deezer-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Deezer</h4>
-                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
-                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                      <span className="relative text-black group-hover:text-white">Purchase</span>
-                    </button>
-                  </div>
-                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
-                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/YouTube_Music/YouTube_Music-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Youtube Music</h4>
+                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Apple_Music/Apple_Music-Logo.wine.svg" />
+                    <h4 className="text-white text-2xl font-bold capitalize text-center">Steam</h4>
                     <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                       <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                       <span className="relative text-black group-hover:text-white">Purchase</span>
@@ -170,7 +105,15 @@ export default function GiftCards() {
                   </div>
                   <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
                     <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Apple_Music/Apple_Music-Logo.wine.svg" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Apple Music</h4>
+                    <h4 className="text-white text-2xl font-bold capitalize text-center">FortNite</h4>
+                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
+                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                      <span className="relative text-black group-hover:text-white">Purchase</span>
+                    </button>
+                  </div>
+                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
+                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://www.logo.wine/a/logo/Apple_Music/Apple_Music-Logo.wine.svg" />
+                    <h4 className="text-white text-2xl font-bold capitalize text-center">Riot</h4>
                     <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                       <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                       <span className="relative text-black group-hover:text-white">Purchase</span>
@@ -186,7 +129,15 @@ export default function GiftCards() {
                   </div>
                   <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
                     <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://i.pinimg.com/originals/04/c8/12/04c8125b2519673573d53e5f9c5a4b47.png" />
-                    <h4 className="text-white text-2xl font-bold capitalize text-center">Cartão pré-pago</h4>
+                    <h4 className="text-white text-2xl font-bold capitalize text-center">Cartão pré-pago - MasterCard</h4>
+                    <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
+                      <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                      <span className="relative text-black group-hover:text-white">Purchase</span>
+                    </button>
+                  </div>
+                  <div className="relative group bg-blue-500 py-10 sm:py-20 px-4 flex flex-col space-y-2 items-center cursor-pointer rounded-md hover:bg-blue-600/80 hover:smooth-hover">
+                    <img className="w-50 h-40 bg-gray-100 object-cover object-center rounded-xl" src="https://i.pinimg.com/originals/04/c8/12/04c8125b2519673573d53e5f9c5a4b47.png" />
+                    <h4 className="text-white text-2xl font-bold capitalize text-center">Cartão pré-pago - Visa</h4>
                     <button onClick={openModal} className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white text-lg shadow">
                       <div className="absolute inset-0 w-3 bg-blue-800 transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                       <span className="relative text-black group-hover:text-white">Purchase</span>
