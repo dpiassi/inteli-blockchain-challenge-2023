@@ -1,11 +1,15 @@
 import createOrder from "~/dao/createOrder";
-import { Link, useParams } from "@remix-run/react";
+import { Link, useLocation } from "@remix-run/react";
+
 
 export default function PurchaseForm() {
+  console.log("chegou aqui")
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.keys().next().value;
+
   async function handleSubmit(event: any) {
     event.preventDefault();
-    const { id } = useParams();
-    console.log(id);
 
     const formData = new FormData(event.currentTarget);
     try {
