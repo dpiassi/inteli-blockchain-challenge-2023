@@ -1,8 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
-
 
 export const meta: V2_MetaFunction = () => [{ title: "ReCoin" }];
 
@@ -31,7 +30,7 @@ export default function GiftCards() {
           <nav className="nav font-semibold text-lg">
             <ul className="flex items-center">
               <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
-                <Link to="/giftCards">Gift Cards</Link>
+                <Link to="/">Gift Cards</Link>
               </li>
               <li className="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
                 <Link to="/history">History</Link>
@@ -55,7 +54,7 @@ export default function GiftCards() {
               {/* <!-- Content --> */}
               <div className="flex-1 px-2 sm:px-0">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-3xl font-extralight text-grey/50">Gift Cards Available</h3>
+                  <h3 className="text-3xl font-extralight text-grey/50">All Gift Cards</h3>
                 </div>
                 <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                   {/* <!-- Cards --> */}
