@@ -53,7 +53,7 @@ export default function PurchaseForm() {
             fixedRecipientDenominations={giftCardData.fixedRecipientDenominations} 
             currency={giftCardData.recipientCurrencyCode} />
         )}
-        <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
+        <h1 className="text-4xl font-medium min-h-[150px">Purchase Gift Card</h1>
 
         <form onSubmit={handleSubmit} id="purchase" className="mt-10">
           <div className="grid gap-6 sm:grid-cols-2">
