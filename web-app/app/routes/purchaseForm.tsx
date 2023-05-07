@@ -1,11 +1,17 @@
 import createOrder from "~/dao/createOrder";
 import { Link, useLocation } from "@remix-run/react";
-
+import jsonData from "../../giftCards.json"
+import GiftCardComponent from "./components/giftCard"
 
 export default function PurchaseForm() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.keys().next().value;
+
+  const giftCardData = jsonData.find(json => {
+    const obj = Object.assign({}, json)
+    return obj.productId == parseInt(id)
+  })
 
   async function handleSubmit(event: any) {
     event.preventDefault();
@@ -35,6 +41,13 @@ export default function PurchaseForm() {
   return (
     <div className="flex min-h-screen items-center justify-start bg-white">
       <div className="mx-auto w-full max-w-lg">
+      {giftCardData && (
+          <GiftCardComponent
+            productId={giftCardData.productId}
+            productName={giftCardData.productName}
+            minRecipientDenomination={giftCardData.minRecipientDenomination}
+          />
+        )}
         <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
 
         <form onSubmit={handleSubmit} id="purchase" className="mt-10">
