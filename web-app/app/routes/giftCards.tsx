@@ -1,6 +1,7 @@
 import type { V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import React, { useState } from 'react';
+import { useState } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 
 
@@ -13,6 +14,20 @@ export default function GiftCards() {
   }
   function closeModal() {
     setModalIsOpen(false);
+  }
+
+  //const navigate = useNavigate();
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+  
+    const formData = new FormData(event.target);
+
+    const requestBody = Object.fromEntries(formData.entries());
+
+    console.log('handleSubmit called');
+    console.log(requestBody);
+    closeModal()
   }
 
   return (
@@ -82,7 +97,7 @@ export default function GiftCards() {
             <div className="mx-auto w-full max-w-lg">
               <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
 
-              <form id="purchase" className="mt-10">
+              <form onSubmit={handleSubmit} id="purchase" className="mt-10">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="relative z-0">
                     <input type="text" name="name" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
