@@ -33,9 +33,11 @@ export default function PurchaseForm() {
           phoneNumber: formData.get("phone-input") as string,
         },
       });
-      setApiResponse(JSON.stringify(giftCard));
+      console.log(giftCard)
+      setApiResponse(giftCard);
     } catch (error) {
-      setApiResponse(error);
+      console.log("err",error)
+      setApiResponse(JSON.stringify(error));
     }
   }
   return (
@@ -143,7 +145,7 @@ export default function PurchaseForm() {
           </button>
         </form>
 
-        {apiResponse && <PopupComponent content={<pre>{apiResponse}</pre>} />}
+        {apiResponse && <PopupComponent content={apiResponse} />}
       </div>
     </div>
   );
