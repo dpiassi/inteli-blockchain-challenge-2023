@@ -59,12 +59,6 @@ const GiftCardComponent: React.FC<GiftCardProps> = ({
         </div>
       </div>
     </div>
-
-    // <div>
-    //   <h5>{productName}</h5>
-    //   <p>Product ID: {productId}</p>
-    //   <p>Minimal value: {minRecipientDenomination}</p>
-    // </div>
   );
 };
 
