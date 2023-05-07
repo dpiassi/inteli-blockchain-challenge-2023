@@ -7,7 +7,7 @@ export default interface CreateOrderDto {
     senderName: string,
     recipientEmail: string,
     recipientPhoneDetails?: {
-        countryCode: string, 
+        countryCode: string,
         phoneNumber: string
     }
 }
