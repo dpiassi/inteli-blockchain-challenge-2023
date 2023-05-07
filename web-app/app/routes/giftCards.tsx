@@ -60,7 +60,7 @@ export default function GiftCards() {
         <title>ReCoin</title>
       </head>
       <body>
-        <header className="header py-02 sticky top-0 flex items-center justify-between bg-white px-8 shadow-md">
+        <header className="z-10 header py-02 sticky top-0 flex items-center justify-between bg-white px-8 shadow-md">
           {/* <!-- logo --> */}
           <h1 className="w-3/12">
             <svg
