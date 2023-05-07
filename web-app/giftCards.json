@@ -1,0 +1,251 @@
+[
+    {
+        "productId": 16964,
+        "productName": "Bitcoin BR (Binance)",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 0.0,
+        "denominationType": "RANGE",
+        "recipientCurrencyCode": "USD",
+        "minRecipientDenomination": 5.0,
+        "maxRecipientDenomination": 99.0,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": 24.77,
+        "maxSenderDenomination": 490.36,
+        "fixedRecipientDenominations": [],
+        "fixedSenderDenominations": null,
+        "fixedRecipientToSenderDenominationsMap": null,
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/binance-btc-e405dfd6-d2fa-4fee-83e7-83aa5b013e42.jpeg"
+        ],
+        "brand": {
+            "brandId": 320,
+            "brandName": "Binance"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "To redeem, visit https://www.binance.com/en/gift-card",
+            "verbose": "To redeem, visit https://www.binance.com/en/gift-card or Download the Binance App from https://binance.com/en/download. Create an account, then tap the 'Profile Icon' on top left corner, tap Gift Card: tap Receive, tap Redeem Crypto, enter Gift Card code (16-digit alphanumeric sequence. For more questions, please see Gift Cards FAQ"
+        }
+    },
+    {
+        "productId": 3208,
+        "productName": "Free Fire 210 + 21 Diamond BR",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 2.9,
+        "denominationType": "FIXED",
+        "recipientCurrencyCode": "USD",
+        "minRecipientDenomination": null,
+        "maxRecipientDenomination": null,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": null,
+        "maxSenderDenomination": null,
+        "fixedRecipientDenominations": [
+            2.00
+        ],
+        "fixedSenderDenominations": [
+            9.91
+        ],
+        "fixedRecipientToSenderDenominationsMap": {
+            "2.00": 9.91
+        },
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/c722d3a0-3e51-421e-a30a-51680a40e6ae.jpg"
+        ],
+        "brand": {
+            "brandId": 22,
+            "brandName": "Free Fire"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "Redeem the Free Fire code online at https://shop.garena.sg/app",
+            "verbose": "Only Player ID & Nickname is needed for Garena Free Fire Diamonds top-up. You may stay logged in throughout the transaction, once the top-up is completed, you will receive the Diamonds in your Garena Free Fire account. &#13;Please enter your Player ID & Nickname correctly to avoid delay on Diamonds top-up. &#13;Follow these simple steps to get your diamonds by redeeming the Free Fire code online: https://shop.garena.sg/app &#13;-Select Free Fire &#13;-Log into your account either through linked social media or by entering your Player ID. &#13;-Select Garena Voucher &#13;-Enter the code you received from us. &#13;-The diamonds will then be visible in your Free Fire account."
+        }
+    },
+    {
+        "productId": 16676,
+        "productName": "Mastercard® Prepaid Card CAD BR",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 2.5,
+        "denominationType": "RANGE",
+        "recipientCurrencyCode": "CAD",
+        "minRecipientDenomination": 5.0,
+        "maxRecipientDenomination": 133.42,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": 18.38,
+        "maxSenderDenomination": 490.33,
+        "fixedRecipientDenominations": [],
+        "fixedSenderDenominations": null,
+        "fixedRecipientToSenderDenominationsMap": null,
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/e39131b3-1686-4d8a-a95a-78fa2817b9fa.jpeg"
+        ],
+        "brand": {
+            "brandId": 378,
+            "brandName": "Mastercard"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "This card is redeemable online anywhere Mastercard debit is accepted",
+            "verbose": "At the payment site, select a Virtual Prepaid Mastercard, ready for immediate use online or over the phone\nanywhere Mastercard is accepted. The redemption site will ask you to provide your name, address, email and mobile phone\nnumber to be associated with your Prepaid Mastercard. Agree to the Cardholder Agreement to complete the redemption.\nNOTE: You must select your card within 4 months from the date this email was sent. Your right to the payment expires\nafter that time. Once redeemed, you will have 12 months to use your Prepaid Mastercard wherever Mastercard is accepted.\nThe redemption website provides balance information and transaction history to help you keep track of all your rewards.\nPlease note that some merchants may choose not to accept out of country currency at their own discretion. If this\noccurs, pay for your purchase by another payment method and use your Prepaid Mastercard at a different merchant."
+        }
+    },
+    {
+        "productId": 14684,
+        "productName": "Fortnite (Standard Edition) BR",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 2.5,
+        "denominationType": "FIXED",
+        "recipientCurrencyCode": "USD",
+        "minRecipientDenomination": null,
+        "maxRecipientDenomination": null,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": null,
+        "maxSenderDenomination": null,
+        "fixedRecipientDenominations": [
+            25.00,
+            40.00,
+            100.00
+        ],
+        "fixedSenderDenominations": [
+            123.83,
+            198.12,
+            495.31
+        ],
+        "fixedRecipientToSenderDenominationsMap": {
+            "25.00": 123.83,
+            "40.00": 198.12,
+            "100.00": 495.31
+        },
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/c940964b-0e6d-4243-8439-a9897dd0dd9d.jpg"
+        ],
+        "brand": {
+            "brandId": 20,
+            "brandName": "Fortnite"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "To redeem your V-Bucks, enter the pin at Fortnite.com/vbuckscard",
+            "verbose": "Redeem a gift card for V-Bucks to use in Fortnite on any supported device! If you are unable to redeem a V-Bucks card and/or access V-Bucks in Fortnite, please contact Epic&&#39;s customer service for assistance at epic games.com/customer-service. &#13;To redeem your V-Bucks, enter the pin at Fortnite.com/vbuckscard &#13;An Epic Games account is required to redeem a V-Bucks Card code. After entering your code on Fortnite.com/vbuckscard, select the platform where you would like the V-Bucks applied. If playing on a console platform (PlayStation Network, Xbox Live, Nintendo Switch) you need to link your Epic Games account to that gaming platform (one time) to redeem your gift card code. The 16 digit code on the back of the card WILL NOT work if redeemed directly through your gaming platform (PlayStation Network, Xbox Live, Nintendo Switch, etc.)"
+        }
+    },
+    {
+        "productId": 4869,
+        "productName": "RIOT ACCESS Latam America BR",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 3.75,
+        "denominationType": "FIXED",
+        "recipientCurrencyCode": "USD",
+        "minRecipientDenomination": null,
+        "maxRecipientDenomination": null,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": null,
+        "maxSenderDenomination": null,
+        "fixedRecipientDenominations": [
+            5.00,
+            10.00,
+            15.00,
+            25.00,
+            50.00,
+            80.00
+        ],
+        "fixedSenderDenominations": [
+            24.77,
+            49.53,
+            74.30,
+            123.83,
+            247.66,
+            396.25
+        ],
+        "fixedRecipientToSenderDenominationsMap": {
+            "5.00": 24.77,
+            "10.00": 49.53,
+            "15.00": 74.30,
+            "25.00": 123.83,
+            "50.00": 247.66,
+            "80.00": 396.25
+        },
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/e4432a2a-3c7e-4ae4-957e-109482e51289.png"
+        ],
+        "brand": {
+            "brandId": 33,
+            "brandName": "Riot Access"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "Launch the League of Legends client. Click on Store -> Purchase RP -> Prepaid Cards & Riot Pin and enter your code.",
+            "verbose": "1. Launch the League of Legends client or go to signup.na.leagueoflegends.com to create an account. &#13;2. Click on the Store button. &#13;3. Click on the Purchase RP button. &#13;4. Select Prepaid Cards & Riot Pin and enter your code. &#13;5. Click Submit. &#13;We may (and probably will) create updated versions of theseTerms in the future as the Riot Services and applicable laws evolve. When we do, we&#39;ll inform you of the new agreement which will supersede and replace these Terms. You&#39;ll be given an opportunity to review any new agreement we present to you and decide whether you wish to agree to the revised terms. If you accept the new agreement, you&#39;ll be able to continue using the Riot Services. If you decline the new agreement, you won&#39;t be able to use the Riot Services anymore."
+        }
+    },
+    {
+        "productId": 15674,
+        "productName": "Steam BR",
+        "global": false,
+        "senderFee": 2.48,
+        "senderFeePercentage": 0.00,
+        "discountPercentage": 1.5,
+        "denominationType": "FIXED",
+        "recipientCurrencyCode": "USD",
+        "minRecipientDenomination": null,
+        "maxRecipientDenomination": null,
+        "senderCurrencyCode": "BRL",
+        "minSenderDenomination": null,
+        "maxSenderDenomination": null,
+        "fixedRecipientDenominations": [
+            20.00
+        ],
+        "fixedSenderDenominations": [
+            99.06
+        ],
+        "fixedRecipientToSenderDenominationsMap": {
+            "20.00": 99.06
+        },
+        "logoUrls": [
+            "https://cdn.reloadly.com/giftcards/795088c7-da49-4cfa-a631-e1cc2ff6b089.png"
+        ],
+        "brand": {
+            "brandId": 72,
+            "brandName": "Steam"
+        },
+        "country": {
+            "isoName": "BR",
+            "name": "Brazil",
+            "flagUrl": "https://s3.amazonaws.com/rld-flags/br.svg"
+        },
+        "redeemInstruction": {
+            "concise": "LOGIN TO YOUR STEAM ACCOUNT, CLICK ON YOUR ACCOUNT NAME -> ACCOUNT DETAILS -> ADD FUNDS TO YOUR STEAM WALLET -> REDEEM A STEAM WALLET CODE",
+            "verbose": "LOGIN TO YOUR STEAM ACCOUNT &#13;2. CLICK ON YOUR ACCOUNT NAME, THEN CLICK ACCOUNT DETAILS &#13;3. CLICK ON &#39;ADD FUNDS TO YOUR STEAM WALLET&#39; &#13;4. CLICK &#39;REDEEM A STEAM WALLET CODE&#39; &#13;5. ENTER YOUR STEAM WALLET GIFT CARD"
+        }
+    }
+]
