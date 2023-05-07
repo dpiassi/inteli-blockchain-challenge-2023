@@ -41,11 +41,13 @@ export default function PurchaseForm() {
               phoneNumber: formData.get("phone-input") as string,
             },
           });
-          setApiResponse(JSON.stringify(giftCard));
+          console.log(giftCard)
+      setApiResponse(giftCard);
         }
       });
     } catch (error) {
-      setApiResponse(error);
+      console.log("err",error)
+      setApiResponse(JSON.stringify(error));
     }
   }
 
@@ -64,7 +66,7 @@ export default function PurchaseForm() {
             fixedRecipientDenominations={giftCardData.fixedRecipientDenominations}
             currency={giftCardData.recipientCurrencyCode} />
         )}
-        <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
+        <h1 className="text-4xl font-medium min-h-[150px">Purchase Gift Card</h1>
 
         <form onSubmit={handleSubmit} id="purchase" className="mt-10">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -156,7 +158,7 @@ export default function PurchaseForm() {
           </button>
         </form>
 
-        {apiResponse && <PopupComponent content={<pre>{apiResponse}</pre>} />}
+        {apiResponse && <PopupComponent content={apiResponse} />}
       </div>
     </div>
   );

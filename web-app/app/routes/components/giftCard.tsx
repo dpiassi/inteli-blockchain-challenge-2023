@@ -31,7 +31,7 @@ const GiftCardComponent: React.FC<GiftCardProps> = ({
 
       <div
         id="partnerCard"
-        className="bg-[#4682B4] text-gray-50 overflow-hidden rounded-md max-w-sm p-2 min-h-[500px] flex flex-col"
+        className="bg-[#ffffff] text-white-50 overflow-hidden rounded-md  p-2 min-h-[150px] flex flex-col"
       >
         <div>
           <h3 className="text-left pl-8 pb-4 pt-2 text-xl">
@@ -39,7 +39,7 @@ const GiftCardComponent: React.FC<GiftCardProps> = ({
           </h3>
         </div>
 
-        <div className="flex items-center justify-center bg-[#4682B4]] min-h-[200px]">
+        <div className="flex items-center justify-center bg-[#ffffff] min-h-[100px]">
 
           <img
             src={logoUrls[0]}

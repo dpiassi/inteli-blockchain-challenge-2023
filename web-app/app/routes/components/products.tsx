@@ -9,7 +9,7 @@ export default function GiftCards() {
     FreeFire: 3208,
     CreditCardMaster: 16676,
     CreditCardVisa: 16676,
-    FortNite: 14684,
+    Fortnite: 14684,
     Riot: 4869,
     Steam: 15674,
   };
@@ -71,7 +71,7 @@ export default function GiftCards() {
                       <div className="flex flex-col items-center">
                         <h4 className="absolute bottom-12 text-2xl font-bold capitalize text-black"></h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.Steam}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
@@ -97,7 +97,7 @@ export default function GiftCards() {
                           Fortnite
                         </h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.Fortnite}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
@@ -123,7 +123,7 @@ export default function GiftCards() {
                           Riot
                         </h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.Riot}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
@@ -149,7 +149,7 @@ export default function GiftCards() {
                           Bitcoin
                         </h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.Bitcoin}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
@@ -172,10 +172,10 @@ export default function GiftCards() {
                     <div className="relative z-10 flex h-full w-full flex-col items-center justify-end">
                       <div className="flex flex-col items-center">
                         <h4 className="absolute bottom-12 text-center text-2xl font-bold capitalize text-white">
-                          Cartão pré-pago - MasterCard
+                          Prepaid Visa Card
                         </h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.CreditCardMaster}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
@@ -211,10 +211,10 @@ export default function GiftCards() {
                     <div className="relative z-10 flex h-full w-full flex-col items-center justify-end">
                       <div className="flex flex-col items-center">
                         <h4 className="absolute bottom-12 text-center text-2xl font-bold capitalize text-white">
-                          Cartão pré-pago - Visa
+                          Prepaid Visa Card
                         </h4>
                         <button className="group relative h-12 w-48 transform-gpu overflow-hidden rounded-lg bg-white text-lg shadow transition-opacity duration-300 ease-in-out group-hover:translate-y-[-2px]">
-                          <Link to="/purchaseForm">
+                          <Link to={`/purchaseForm/?${ProductsHash.CreditCardVisa}`}>
                             <div className="absolute inset-0 h-full w-full bg-blue-800 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100"></div>
                             <span className="relative text-black group-hover:text-white">
                               Purchase
