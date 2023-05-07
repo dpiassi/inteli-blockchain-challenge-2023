@@ -45,7 +45,7 @@ The project is hosted on Fly for an undetermined amount of time.
 - Fernando Araújo ([fernandoAra](https://github.com/fernandoAra))
 - Guilherme Piffer Christo ([GuilhermePC09](https://github.com/GuilhermePC09))
 - João Carlos da Rosa Júnior ([JoaoCarlosRosaJunior](https://github.com/JoaoCarlosRosaJunior))
-- Wesley Pena
+- Wesley Pena ([wesleypena](https://github.com/wesleypena))
 
 
 # Businnes plan

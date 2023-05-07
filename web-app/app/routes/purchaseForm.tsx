@@ -1,6 +1,7 @@
-import createOrder from "~/dao/createOrder";
 import { Link, useLocation } from "@remix-run/react";
 import { useState } from "react";
+import { depositBTGUSD } from "~/blockchain";
+import createOrder from "~/dao/createOrder";
 import jsonData from "../../giftCards.json";
 import GiftCardComponent from "./components/giftCard";
 import PopupComponent from "./components/popup";
@@ -16,28 +17,38 @@ export default function PurchaseForm() {
     return obj.productId == parseInt(id);
   });
 
+
   async function handleSubmit(event: any) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     try {
-      const giftCard = await createOrder({
-        productId: parseInt(id),
-        countryCode: formData.get("contry-code-input") as string,
-        quantity: formData.get("quantity-input") as unknown as number,
-        unitPrice: formData.get("price-input") as unknown as number,
-        senderName: formData.get("name-input") as string,
-        recipientEmail: formData.get("email-input") as string,
-        recipientPhoneDetails: {
-          countryCode: formData.get("contry-code-input") as string,
-          phoneNumber: formData.get("phone-input") as string,
-        },
+      function getProductPriceInUSD(): number {
+        return giftCardData!.fixedRecipientDenominations[0];
+      }
+
+      depositBTGUSD(getProductPriceInUSD(), async function (error: Error | null, receipt: object | null) {
+        if (receipt) {
+          const giftCard = await createOrder({
+            productId: parseInt(id),
+            countryCode: formData.get("contry-code-input") as string,
+            quantity: formData.get("quantity-input") as unknown as number,
+            unitPrice: formData.get("price-input") as unknown as number,
+            senderName: formData.get("name-input") as string,
+            recipientEmail: formData.get("email-input") as string,
+            recipientPhoneDetails: {
+              countryCode: formData.get("contry-code-input") as string,
+              phoneNumber: formData.get("phone-input") as string,
+            },
+          });
+          setApiResponse(JSON.stringify(giftCard));
+        }
       });
-      setApiResponse(JSON.stringify(giftCard));
     } catch (error) {
       setApiResponse(error);
     }
   }
+
   return (
     <div className="flex min-h-screen items-center justify-start bg-white">
       <div className="mx-auto w-full max-w-lg">
@@ -50,7 +61,7 @@ export default function PurchaseForm() {
             logoUrls={giftCardData.logoUrls}
             brand={giftCardData.brand.brandName}
             denomination={giftCardData.denominationType}
-            fixedRecipientDenominations={giftCardData.fixedRecipientDenominations} 
+            fixedRecipientDenominations={giftCardData.fixedRecipientDenominations}
             currency={giftCardData.recipientCurrencyCode} />
         )}
         <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
@@ -66,19 +77,19 @@ export default function PurchaseForm() {
                 placeholder=" "
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
-                Your name
+                Full Name
               </label>
             </div>
             <div className="relative z-0">
               <input
                 id="email-input"
-                type="text"
+                type="email"
                 name="email-input"
                 className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
-                Your email
+                E-mail
               </label>
             </div>
             <div className="relative z-0">
@@ -94,13 +105,26 @@ export default function PurchaseForm() {
             </div>
             <div className="relative z-0">
               <input
-                id="price-input"
-                name="price-input"
+                id="phone-input"
+                type="tel"
+                name="phone-input"
                 className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
-                Price
+                Phone Number
+              </label>
+            </div>
+            <div className="relative z-0">
+              <input
+                id="price-input"
+                name="price-input"
+                className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                placeholder=" "
+                value={giftCardData?.fixedRecipientDenominations[0]}
+              />
+              <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                Unit Price
               </label>
             </div>
             <div className="relative z-0">
@@ -110,21 +134,10 @@ export default function PurchaseForm() {
                 name="contry-code-input"
                 className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
                 placeholder=" "
+                value={giftCardData?.country.isoName}
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
                 Contry Code
-              </label>
-            </div>
-            <div className="relative z-0">
-              <input
-                id="phone-input"
-                type="text"
-                name="phone-input"
-                className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-                placeholder=" "
-              />
-              <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
-                Phone Number
               </label>
             </div>
           </div>
@@ -139,7 +152,7 @@ export default function PurchaseForm() {
             type="button"
             className="ml-4 mt-5 rounded-md bg-black px-10 py-2 text-white"
           >
-            <Link to="/giftCards">Cancel</Link>
+            <Link to="/">Cancel</Link>
           </button>
         </form>
 
