@@ -12,9 +12,7 @@ export default function GiftCards() {
     Riot: 4869,
     Steam: 15674,
   };
-
-  console.log(ProductsHash.FreeFire)
-
+  
   return (
     <main>
       <head>
