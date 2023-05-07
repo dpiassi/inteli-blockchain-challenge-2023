@@ -1,6 +1,6 @@
 # STABLESHOP • Buy Gift Cards using BTGUSD
 
--- TODO embed demo video here
+[![Demo Video](https://img.youtube.com/vi/MQj-_ZMH1TU/0.jpg)](https://www.youtube.com/watch?v=MQj-_ZMH1TU)
 
 ## Abstract
 
