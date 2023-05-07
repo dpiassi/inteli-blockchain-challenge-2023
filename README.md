@@ -1,4 +1,4 @@
-# GIFTDOL • Buy Gift Cards using BTGUSD
+# STABLESHOP • Buy Gift Cards using BTGUSD
 
 -- TODO embed demo video here
 
@@ -85,35 +85,55 @@ Brazilian digital market 188.3 million people, concentration of Mynt/BTG 1.642 m
 
 Market value in reais (BRL) prepaid cards 2022 T4 x % of Mynt/BTG
 
+```
 218,433,000,000.00 x 0.0008720 = 190,473,576.00 BRL
+```
 
+```
 2.9% on volume = 5,523,733.70 BRL
+```
 
 Number of prepaid card transactions 2022 x % of Mynt/BTG
 
+```
 7,602,321,000 x 0.008720 = 6,629,223
+```
 
+```
 0.49 cents per transaction = 3,248,319.27 BRL
+```
 
 BTG Dol is a digital cryptocurrency, which means that it can be easily transferred and stored using a digital wallet. it can be sent anywhere in the world in a matter of minutes, making it easy to carry out global transactions quickly and efficiently.
 
-Project 1 will charge by volume and cost per transaction thus having a projected net profit of 5,523,733.70 - 3,248,319.27 = 2,275,414.43.
+STABLESHOP will charge by volume and cost per transaction thus having a projected net profit of 5,523,733.70 - 3,248,319.27 = 2,275,414.43.
 
-Non-breakdown costs: 10% will be non-breakdown costs
-hardware infrastructure:
-Software and licenses:
-Network infrastructure:
-Technical support:
-Information security:
-Updates and maintenance:
-Software and application development:
+### Non-breakdown costs
+10% will be non-breakdown costs
+
+```
 2,275,414.43 x 0.10 = 227,541.44
+```
 
-Financial Losses: 20% will be the loss rate adopted
+- Hardware infrastructure:
+- Software and licenses:
+- Network infrastructure:
+- Technical support:
+- Information security:
+- Updates and maintenance:
+- Software and application development:
 
+
+### Financial Losses
+20% will be the loss rate adopted
+
+```
 2,275,414.43 x 0.20 = 455,082.88
+```
 
+### RETURN ON INVESTMENT
+```
 ROI = (1,592,790.11 / 3,248,319.27) x 100% = 49.03%
+```
 
 ## Growth strategy
 Seek customers who already have a digital account and use Mynt/BTG to convince them to transact via prepaid card and convince them to use the gift card.
