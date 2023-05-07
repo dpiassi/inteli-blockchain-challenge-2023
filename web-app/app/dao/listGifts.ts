@@ -11,7 +11,7 @@ dotenv.config({ path: envPath });
 const giftlistUrl = process.env.GIFT_LIST_URL;
 const access_token = process.env.ACCESS_TOKEN;
 
-export default async function listGifts(dto: ListGiftsDto): Promise<any> {
+export default async function ListGifts(dto: ListGiftsDto): Promise<any> {
   try {
     const headers = {
       "Content-Type": "application/json",
