@@ -28,9 +28,6 @@ export default function GiftCards() {
           <li className="active cursor-pointer border-b-2 border-blue-500 border-opacity-0 p-4 duration-200 hover:border-opacity-100 hover:text-blue-500">
             <Link to="/">Gift Cards</Link>
           </li>
-          <li className="active cursor-pointer border-b-2 border-blue-500 border-opacity-0 p-4 duration-200 hover:border-opacity-100 hover:text-blue-500">
-            <Link to="/history">History</Link>
-          </li>
         </ul>
       </nav>
 
