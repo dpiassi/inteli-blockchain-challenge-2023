@@ -1,11 +1,9 @@
-import type { ActionArgs, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
-import { Form, Link, useActionData, useSearchParams } from "@remix-run/react";
-import { useEffect, useRef } from "react";
+import type { ActionArgs, V2_MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Form, useActionData, useSearchParams } from "@remix-run/react";
+import { useRef } from "react";
 
-import { verifyLogin } from "~/models/user.server";
-import { createUserSession, getUserId } from "~/session.server";
-import { safeRedirect, validateEmail } from "~/utils";
+import { validateEmail } from "~/utils";
 
 export const action = async ({ request }: ActionArgs) => {
   const formData = await request.formData();
@@ -15,7 +13,7 @@ export const action = async ({ request }: ActionArgs) => {
   const senderName = formData.get("name")
   const phoneNumber = formData.get("phoneNumber")
   const phoneCountryCode = formData.get("countryCode")
-  
+
   const productId = formData.get("password");
 
   if (!validateEmail(recipientEmail)) {
