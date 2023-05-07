@@ -1,8 +1,8 @@
 import createOrder from "~/dao/createOrder";
 import { Link, useLocation } from "@remix-run/react";
-import {useState} from 'react'
-import jsonData from "../../giftCards.json"
-import GiftCardComponent from "./components/giftCard"
+import { useState } from "react";
+import jsonData from "../../giftCards.json";
+import GiftCardComponent from "./components/giftCard";
 import PopupComponent from "./components/popup";
 
 export default function PurchaseForm() {
@@ -11,10 +11,10 @@ export default function PurchaseForm() {
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.keys().next().value;
 
-  const giftCardData = jsonData.find(json => {
-    const obj = Object.assign({}, json)
-    return obj.productId == parseInt(id)
-  })
+  const giftCardData = jsonData.find((json) => {
+    const obj = Object.assign({}, json);
+    return obj.productId == parseInt(id);
+  });
 
   async function handleSubmit(event: any) {
     event.preventDefault();
@@ -37,12 +37,11 @@ export default function PurchaseForm() {
     } catch (error) {
       setApiResponse(error);
     }
-
   }
   return (
     <div className="flex min-h-screen items-center justify-start bg-white">
       <div className="mx-auto w-full max-w-lg">
-      {giftCardData && (
+        {giftCardData && (
           <GiftCardComponent
             productId={giftCardData.productId}
             productName={giftCardData.productName}
@@ -133,15 +132,13 @@ export default function PurchaseForm() {
           </button>
           <button
             type="button"
-            className="mt-5 rounded-md bg-black px-10 py-2 text-white"
+            className="ml-4 mt-5 rounded-md bg-black px-10 py-2 text-white"
           >
-            <Link to= "/giftCards">Cancel</Link>
+            <Link to="/giftCards">Cancel</Link>
           </button>
         </form>
 
-        {apiResponse && (
-          <PopupComponent content={<pre>{apiResponse}</pre>} />
-        )}
+        {apiResponse && <PopupComponent content={<pre>{apiResponse}</pre>} />}
       </div>
     </div>
   );
