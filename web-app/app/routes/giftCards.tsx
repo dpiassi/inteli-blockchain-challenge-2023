@@ -15,8 +15,6 @@ export default function GiftCards() {
     setModalIsOpen(false);
   }
 
-  //const navigate = useNavigate();
-
   async function handleSubmit(event: any) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -40,21 +38,6 @@ export default function GiftCards() {
       closeModal();
     }
   }
-
-  interface Products {
-    [key: string]: number;
-  }
-  
-  const ProductsHash: Products = {
-    Bitcoin: 16964,
-    FreeFire: 3208,
-    CreditCardMaster: 16676,
-    CreditCardVisa: 16676,
-    FortNite: 14684,
-    Riot: 4869,
-    Steam: 15674,
-
-  };
 
   interface Products {
     [key: string]: number;
