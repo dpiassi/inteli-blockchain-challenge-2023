@@ -1,31 +1,72 @@
-import type { V2_MetaFunction } from "@remix-run/node";
+import { ActionArgs, LoaderArgs, V2_MetaFunction, json } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
+import { depositBTGUSD } from "~/blockchain";
+import createOrder from "~/dao/dao";
+import type CreateOrderDto from "~/dto/createOrder.dto";
 
 export const meta: V2_MetaFunction = () => [{ title: "ReCoin" }];
 
+// Loaders only run on the server and provide data
+// to your component on GET requests
+export const loader = async ({ request }: LoaderArgs) => {
+  return null;
+};
+
+// Actions only run on the server and handle POST
+// PUT, PATCH, and DELETE. They can also provide data
+// to the component
+export async function action({ request }: ActionArgs) {
+  if (request.method !== "POST") {
+    return json({ error: "Only POST allowed" }, 405);
+  }
+
+  console.warn(process.env);
+  // createOrder({} as CreateOrderDto);
+  return json({ ok: true }, 200);
+}
+
+// The default export is the component that will be
+// rendered when a route matches the URL. This runs
+// both on the server and the client
 export default function GiftCards() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
   function openModal() {
+    // initPurchase(12);
     setModalIsOpen(true);
   }
+
   function closeModal() {
     setModalIsOpen(false);
   }
 
-  //const navigate = useNavigate();
-
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-  
+
     const formData = new FormData(event.target);
 
     const requestBody = Object.fromEntries(formData.entries());
 
     console.log('handleSubmit called');
     console.log(requestBody);
+
+    console.warn(process.env);
+    createOrder({} as CreateOrderDto);
     closeModal()
+  }
+
+  function initPurchase(productId: number) {
+    function getProductPriceInUSD(): number {
+      // TODO
+      return 10;
+    }
+    depositBTGUSD(getProductPriceInUSD(), function (error: Error | null, receipt: object | null) {
+      if (receipt) {
+
+      }
+    });
   }
 
   return (
@@ -206,7 +247,7 @@ export default function GiftCards() {
             <div className="mx-auto w-full max-w-lg">
               <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
 
-              <form onSubmit={handleSubmit} id="purchase" className="mt-10">
+              <form action="GiftCards" method="post" id="purchase" className="mt-10">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="relative z-0">
                     <input type="text" name="name" className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />

@@ -1,13 +1,9 @@
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import RedeemInstructionsDto from "~/dto/redeemInstruct.dto";
 
-// Load credentials from .env file
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const redeemUrl = process.env.REDEEM_URL;
-const access_token = process.env.ACCESS_TOKEN;
+// BE CAREFUL: these environemnt variables are only acessible from Server Side.
+const REDEEM_URL = process.env.REDEEM_URL;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
 export default async function listGifts(
   dto: RedeemInstructionsDto
@@ -16,10 +12,10 @@ export default async function listGifts(
     const headers = {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
     };
 
-    const response = await axios.post(redeemUrl as string, dto, {
+    const response = await axios.post(REDEEM_URL as string, dto, {
       headers: headers,
     });
 

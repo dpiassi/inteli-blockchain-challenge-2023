@@ -1,24 +1,20 @@
 
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import ListGiftsDto from "~/dto/listGifts.dto";
 
-// Load credentials from .env file
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const giftlistUrl = process.env.GIFT_LIST_URL;
-const access_token = process.env.ACCESS_TOKEN;
+// BE CAREFUL: these environemnt variables are only acessible from Server Side.
+const GIFT_LIST_URL = process.env.GIFT_LIST_URL;
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 
 export default async function ListGifts(dto: ListGiftsDto): Promise<any> {
   try {
     const headers = {
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
     };
 
-    const response = await axios.post(giftlistUrl as string, dto, {
+    const response = await axios.post(GIFT_LIST_URL as string, dto, {
       headers: headers,
     });
 
