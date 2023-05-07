@@ -1,14 +1,9 @@
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import RedeemInstructionsDto from "~/dto/redeemInstruct.dto";
+import * as env from "../../config";
 
-// Load credentials from .env file
-
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const redeemUrl = process.env.REDEEM_URL;
-const access_token = process.env.ACCESS_TOKEN;
+const redeemUrl = env.default.REDEEM_URL;
+const access_token = env.default.ACCESS_TOKEN;
 
 export default async function listGifts(
   dto: RedeemInstructionsDto

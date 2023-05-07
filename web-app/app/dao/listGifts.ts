@@ -1,15 +1,10 @@
-
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import ListGiftsDto from "~/dto/listGifts.dto";
+import * as env from "../../config";
 
-// Load credentials from .env file
 
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const giftlistUrl = process.env.GIFT_LIST_URL;
-const access_token = process.env.ACCESS_TOKEN;
+const giftlistUrl = env.default.GIFTLIST_URL;
+const access_token = env.default.ACCESS_TOKEN;
 
 export default async function listGifts(dto: ListGiftsDto): Promise<any> {
   try {
