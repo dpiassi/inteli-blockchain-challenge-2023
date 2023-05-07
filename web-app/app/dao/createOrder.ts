@@ -4,7 +4,7 @@ import * as env from "../../config";
 
 export default async function createOrder(dto: CreateOrderDto): Promise<any> {
   const accessToken = env.default.ACCESS_TOKEN;
-  
+  console.log(dto)
   let config = {
     method: 'post',
     maxBodyLength: Infinity,
