@@ -1,13 +1,9 @@
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import GiftCodeDto from "~/dto/giftCode.dto";
+import * as env from "../../config";
 
-// Load credentials from .env file
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const giftcodeUrl = process.env.GIFTCODE_URL;
-const access_token = process.env.ACCESS_TOKEN;
+const giftcodeUrl = env.default.GIFTCODE_URL;
+const access_token = env.default.ACCESS_TOKEN;
 
 export default async function allTransactions(dto: GiftCodeDto): Promise<any> {
   try {

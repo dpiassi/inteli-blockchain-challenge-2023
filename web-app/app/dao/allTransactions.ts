@@ -1,13 +1,11 @@
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
 import AllTransactionsDto from "~/dto/allTransactions.dto";
+import * as env from "../../config";
 
 // Load credentials from .env file
-const envPath = path.resolve(__dirname, "../.env");
-dotenv.config({ path: envPath });
-const transactionsURL = process.env.TRANSACTIONS_URL;
-const access_token = process.env.ACCESS_TOKEN;
+
+const transactionsURL = env.default.TRANSACTIONS_URL;
+const access_token = env.default.ACCESS_TOKEN;
 
 export default async function allTransactions(
   dto: AllTransactionsDto
