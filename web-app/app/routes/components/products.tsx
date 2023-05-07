@@ -19,7 +19,7 @@ export default function Products() {
         <div className="flex-1 px-2 sm:px-0">
           <div className="flex items-center justify-between">
             <h3 className="text-grey/50 text-3xl font-extralight">
-              All Gift Cards
+              All Gift Cards Available
             </h3>
           </div>
           <div className="mb-10 mt-10 grid grid-cols-1 gap-4 sm:mb-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
