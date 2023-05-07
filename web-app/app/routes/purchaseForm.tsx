@@ -3,7 +3,6 @@ import { Link, useLocation } from "@remix-run/react";
 
 
 export default function PurchaseForm() {
-  console.log("chegou aqui")
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.keys().next().value;
@@ -14,7 +13,7 @@ export default function PurchaseForm() {
     const formData = new FormData(event.currentTarget);
     try {
       const giftCard = await createOrder({
-        productId: 13960, //Vai ter que pegar do state de cada card
+        productId: parseInt(id),
         countryCode: formData.get("contry-code-input") as string,
         quantity: formData.get("quantity-input") as unknown as number,
         unitPrice: formData.get("price-input") as unknown as number,
