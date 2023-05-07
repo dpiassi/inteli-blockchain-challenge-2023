@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { Button } from "@material-tailwind/react";
 import { Link } from "@remix-run/react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface PopupProps {
   content: any;
@@ -34,9 +33,9 @@ const PopupComponent = ({ content }: PopupProps) => {
               ) : (
                 <>{content.message}</>
               )}
-              <Button>
+              {/* <Button> */}
                 <Link to="/">Close</Link>
-              </Button>
+              {/* </Button> */}
             </div>
           </div>,
           document.body
