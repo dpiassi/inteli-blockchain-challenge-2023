@@ -46,7 +46,12 @@ export default function PurchaseForm() {
             productId={giftCardData.productId}
             productName={giftCardData.productName}
             minRecipientDenomination={giftCardData.minRecipientDenomination}
-          />
+            maxRecipientDenomination={giftCardData.maxRecipientDenomination}
+            logoUrls={giftCardData.logoUrls}
+            brand={giftCardData.brand.brandName}
+            denomination={giftCardData.denominationType}
+            fixedRecipientDenominations={giftCardData.fixedRecipientDenominations} 
+            currency={giftCardData.recipientCurrencyCode} />
         )}
         <h1 className="text-4xl font-medium">Purchase Gift Card</h1>
 
